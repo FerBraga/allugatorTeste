@@ -23,12 +23,13 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
   `password `VARCHAR(90) NOT NULL,
   `role` VARCHAR(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `users` VALUES
-  (1,'Carlos Silva', 'fubebn14', 'admin'),
-  (2,'Joana Teixeira', 'tuhein15', 'client')
+  (1,'Carlos Silva','carlos@email.com', 'fubebn14', 'admin'),
+  (2,'Joana Teixeira','joana@email.com', 'tuhein15', 'client')
 

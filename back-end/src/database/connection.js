@@ -5,9 +5,11 @@ dotenv.config();
 
 const connection = mysql.createPool({
   host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
+  password: process.env.MYSQL_ROOT_PASSWORD || 'Fb97016949',
+  user: process.env.MYSQL_USER || 'root',
+  database: process.env.MYSQL_DATABASE,
   port: process.env.MYSQL_PORT
 }); 
+
 
 module.exports = connection;
