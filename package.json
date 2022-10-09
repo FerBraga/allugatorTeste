@@ -1,0 +1,30 @@
+{
+  "name": "allugatorfs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node /back-end/src/server.js",
+    "dev": "nodemon back-end/src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.8.3",
+    "axios": "^1.1.2",
+    "dotenv": "^16.0.3",
+    "jest": "^29.1.2",
+    "jest-puppeteer": "^6.1.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.14",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "http-status-codes": "^2.2.0",
+    "joi": "^17.6.2"
+  }
+}
