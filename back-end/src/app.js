@@ -4,6 +4,7 @@ const express = require('express');
 const connection = require('./database/connection');
 const path = require('path');
 const  productsRoute  = require('./routes/productsRoute');
+const usersRoute = require('./routes/usersRoutes');
 
 
 
@@ -16,6 +17,7 @@ app.use('/images', express.static(path.join(__dirname, '..', '..', 'images')));
 
 
 app.get('/products', productsRoute);
+app.get('/users', usersRoute)
 
 
 module.exports = app;
