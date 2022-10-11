@@ -1,7 +1,6 @@
 const cors = require('cors');
 require('express-async-errors');
 const express = require('express');
-const connection = require('./database/connection');
 const path = require('path');
 const  productsRoute  = require('./routes/productsRoute');
 const usersRoute = require('./routes/usersRoutes');
@@ -21,6 +20,7 @@ app.get('/products/search', productsRoute);
 app.get('/users', usersRoute);
 app.get('/info/:id', productsRoute);
 app.get('/order', productsRoute);
+app.get('/order/alphabetical', productsRoute);
 
 
 module.exports = app;

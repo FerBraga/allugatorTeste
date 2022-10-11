@@ -23,8 +23,13 @@ export const getProductByName = async (name) => {
 };
 
 export const getByOrderValue = async (value) => {
-  console.log('value na api front', value);
   const data = await app.get(`/order?value=${value}`)
+    .catch((error) => error)
+  return data;
+};
+
+export const getByAlphabeticalOrder = async () => {
+  const { data } = await app.get('/order/alphabetical')
     .catch((error) => error)
   return data;
 };

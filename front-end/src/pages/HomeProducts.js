@@ -4,7 +4,8 @@ import Products from '../components/Products';
 import { 
   getProducts,
   getProductByName,
-  getByOrderValue
+  getByOrderValue,
+  getByAlphabeticalOrder
 } from '../api/getFromApi';
 
 function HomeProducts() {
@@ -23,6 +24,10 @@ function HomeProducts() {
   const handleOptions = (value) => {
     getByOrderValue(value).then(({ data }) => setProductsList(data))
   };
+
+  const handleAlphabeticalFilter = () => {
+    getByAlphabeticalOrder().then((data) => setProductsList(data))
+  }
 
   return (
     <>
@@ -59,7 +64,7 @@ function HomeProducts() {
       <button
         className="btn-order"
         type="button"
-        onClick={ () => {} } 
+        onClick={ () => handleAlphabeticalFilter() } 
       >
       ordem alfabética
       </button>

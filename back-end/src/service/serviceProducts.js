@@ -2,7 +2,8 @@ const {
 getAll,
 getProductById,
 getProductByName,
-getByOrderValue
+getByOrderValue,
+getByAlphabetical
 } = require('../model/modelProducts')
 
 
@@ -22,14 +23,20 @@ const getProductByNameService = async (name) => {
 };
 
 const getByOrderService = async (value) => {
-    const product = await getByOrderValue(value);
-    return product;
+  const products = await getByOrderValue(value);
+  return products;
+};
+
+const getByAlphabeticalOrderService = async () => {
+  const products = await getByAlphabetical();
+  return products;
 };
  
 module.exports = {
   getAllService,
   getProductByIdService,
   getProductByNameService,
-  getByOrderService
+  getByOrderService,
+  getByAlphabeticalOrderService
 };
 

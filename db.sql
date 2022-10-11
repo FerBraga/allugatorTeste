@@ -16,7 +16,8 @@ INSERT INTO `products` VALUES
   (1,'iPhone 12', '64GB iOS 5G Wi-Fi Tela 6.1'' Câmera 12MP - Verde', 2445.71, 'http://localhost:3001/images/iPhone+12.png'),
   (2,'iPhone 13', '128GB iOS 5G Wi-Fi Tela 6.1'' Câmera 12MP - Vermelho', 3197.00, 'http://localhost:3001/images/iPhone+13.png'),
   (3,'iPhone 13 Pro', '256GB iOS 5G Wi-Fi Tela 6.1'' Câmera 12MP - Azul', 4397.07, 'http://localhost:3001/images/iPhone+13+Pro.png'),
-  (4,'iPhone 13 Pro Max','256GB iOS 5G Wi-Fi Tela 6.7'' Câmera 12MP - Branco', 4397.08, 'http://localhost:3001/images/iPhone+13+Pro+Max.png');
+  (4,'iPhone 13 Pro Max','256GB iOS 5G Wi-Fi Tela 6.7'' Câmera 12MP - Branco', 4397.08, 'http://localhost:3001/images/iPhone+13+Pro+Max.png'),
+  (5,'Apple Watch', 'Apple Watch Series 3 (GPS), em alumínio com Pulseira esportiva branca', 1050.00, 'http://localhost:3001/images/AppleWatch.jpg');
 
 
 DROP TABLE IF EXISTS `users`;
