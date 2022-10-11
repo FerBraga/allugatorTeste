@@ -4,13 +4,6 @@ import React from 'react';
 
 function Navbar() {
 //   const navigate = useNavigate();
-
-
-//   useEffect(() => {
-//     const { name } = getUser();
-//     setUserName(name);
-//   }, []);
-
   return (
     <nav>
       <button

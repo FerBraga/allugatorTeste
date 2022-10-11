@@ -18,9 +18,6 @@ const handleReturn = () => {
         src={ product.image }
         alt="product"
        />
-      <p className="price-text" >
-        {`R$ ${product.price?.replace('.', ',')}`}
-      </p>
       <div className="item-name-container">
         <p className="item-name" >
           {product.name}
@@ -31,6 +28,9 @@ const handleReturn = () => {
           {product.description}
         </p>
       </div>
+      <p className="price-text" >
+        {`R$ ${product.price?.replace('.', ',')} para assinar por um ano. Até 12x sem juros`}
+      </p>
       <div className="add-btn">
         <button
           className="add-btn"

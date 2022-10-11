@@ -17,6 +17,7 @@ app.use('/images', express.static(path.join(__dirname, '..', 'images')));
 
 
 app.get('/products', productsRoute);
+app.get('/products/search', productsRoute);
 app.get('/users', usersRoute);
 app.get('/info/:id', productsRoute);
 

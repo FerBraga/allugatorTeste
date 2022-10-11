@@ -19,7 +19,7 @@ const handleMoreInfo = ({ target }, id) => {
         alt="product"
        />
       <p className="price-text" >
-        {`R$ ${item.price.replace('.', ',')}`}
+        {`por R$ ${item.price.replace('.', ',')} assine por um ano.`}
       </p>
       <div className="item-name-container">
         <p className="item-name" >
