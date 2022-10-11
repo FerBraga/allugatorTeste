@@ -20,4 +20,11 @@ export const getProductByName = async (name) => {
   const { data } = await app.get(`/products/search?name=${name}`)
     .catch((error) => error)
   return data;
-} 
+};
+
+export const getByOrderValue = async (value) => {
+  console.log('value na api front', value);
+  const data = await app.get(`/order?value=${value}`)
+    .catch((error) => error)
+  return data;
+};

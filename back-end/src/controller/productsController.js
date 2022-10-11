@@ -1,4 +1,9 @@
-const { getAllService, getProductByIdService, getProductByNameService} = require('../service/serviceProducts');
+const { 
+  getAllService,
+  getProductByIdService,
+  getProductByNameService,
+  getByOrderService
+} = require('../service/serviceProducts');
 
 const getAllController = async (req, res) => {
   const products = await getAllService();
@@ -13,16 +18,19 @@ const getProductByIdController = async (req, res) => {
 
 const getProductByNameController = async (req, res) => {
   const { name } = req.query;
-  console.log('name', name)
   const product = await getProductByNameService(name);
   return res.status(200).json(product);
 };
 
-
+const getByOrderController = async (req, res) => {
+  const product = await getByOrderService(req.query);
+  return res.status(200).json(product);
+};
 
 module.exports = {
   getAllController,
   getProductByIdController,
-  getProductByNameController
+  getProductByNameController,
+  getByOrderController
 };
 

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Products from '../components/Products';
-import { getProducts, getProductByName } from '../api/getFromApi';
+import { 
+  getProducts,
+  getProductByName,
+  getByOrderValue
+} from '../api/getFromApi';
 
 function HomeProducts() {
   const [productsList, setProductsList] = useState([]);
@@ -13,28 +17,54 @@ function HomeProducts() {
   }, []);
 
   const handleSearch = () => {
-    console.log(inputSearch);
     getProductByName(inputSearch).then((data) => setProductsList(data));
-  }
+  };
+
+  const handleOptions = (value) => {
+    getByOrderValue(value).then(({ data }) => setProductsList(data))
+  };
 
   return (
     <>
       <NavBar />
-      <input 
+      <input
         className="input-bar" 
         placeholder="produto"
         onChange={ (e) => setInputSearch(e.target.value) }
         value={ inputSearch }
       />
-      <button 
+      <button
         className="btn-search"
         type="button"
         onClick={ () => handleSearch() } 
       >
       procurar
       </button>
+      <select
+        className="select-bar"
+        name='maior-menor'
+        onChange={ (e) => handleOptions(e.target.value) }
+      >
+        <option
+          value='maior valor'
+        >
+        maior valor
+        </option>
+        <option
+          value='menor valor'
+        >
+        menor valor
+        </option>
+      </select>
+      <button
+        className="btn-order"
+        type="button"
+        onClick={ () => {} } 
+      >
+      ordem alfabética
+      </button>
       <Products list={ productsList } />
-    </>
+   </>
   );
 }
 

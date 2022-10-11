@@ -1,4 +1,10 @@
-const { getAll, getProductById, getProductByName } = require('../model/modelProducts')
+const { 
+getAll,
+getProductById,
+getProductByName,
+getByOrderValue
+} = require('../model/modelProducts')
+
 
 const getAllService = async () => {
   const products = await getAll();
@@ -14,10 +20,16 @@ const getProductByNameService = async (name) => {
   const product = await getProductByName(name);
   return product;
 };
+
+const getByOrderService = async (value) => {
+    const product = await getByOrderValue(value);
+    return product;
+};
  
 module.exports = {
   getAllService,
   getProductByIdService,
-  getProductByNameService
+  getProductByNameService,
+  getByOrderService
 };
 

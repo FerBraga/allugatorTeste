@@ -20,6 +20,7 @@ app.get('/products', productsRoute);
 app.get('/products/search', productsRoute);
 app.get('/users', usersRoute);
 app.get('/info/:id', productsRoute);
+app.get('/order', productsRoute);
 
 
 module.exports = app;

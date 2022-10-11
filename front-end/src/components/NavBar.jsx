@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useNavigate } from 'react-router-dom';
-// import '../style/navbar.css';
+import '../styles/navbar.css';
 
 function Navbar() {
 //   const navigate = useNavigate();

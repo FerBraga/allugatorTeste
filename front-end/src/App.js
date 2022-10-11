@@ -11,11 +11,10 @@ function App() {
       <Route exact path="/info/:id" element={ <InfoProducts /> } />
     </Routes>
     </div>
-    // Nosso time de negócio necessita que seja desenvolvido um website com os
-    // seguintes requisitos:
+
     // 1) Seja exibido uma lista de produtos para assinatura, com fotos e opção de exibir mais
-    // informações sobre o produto;
-    // 2) Seja possível efetuar a busca por nome do produto;
+    // informações sobre o produto; - OKKK
+    // 2) Seja possível efetuar a busca por nome do produto; OKKK 
     // 3) Seja possível ordenação por valor da assinatura ou ordem alfabética;
     // 4) Opção de criação de contas para os usuários do site, incluindo área logada;
     // 5) Ao visitar o site, deverá ser possível ao usuário selecionar determinado produto e
