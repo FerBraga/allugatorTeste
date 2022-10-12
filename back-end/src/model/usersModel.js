@@ -6,6 +6,14 @@ const findUser = async (email, password) => {
   return data ;
 };
 
+const createUser = async (name, email, password, role) => {
+  const query = 'INSERT INTO meuDB.users (name, email, password, role) VALUES (?, ?, ?, ?)';
+  const [ ResulSetHeader ] = await connection.execute(query, [name, email, password, role]);
+  console.log(ResulSetHeader)  
+  return ResulSetHeader;
+}
+
 module.exports = {
-findUser
+findUser,
+createUser,
 };

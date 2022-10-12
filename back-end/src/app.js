@@ -16,9 +16,9 @@ app.use(cors());
 app.use('/images', express.static(path.join(__dirname, '..', 'images')));
 
 app.post('/login', usersRoute);
+app.post('/register', usersRoute);
 app.get('/products', productsRoute);
 app.get('/products/search', productsRoute);
-app.get('/users', usersRoute);
 app.get('/info/:id', productsRoute);
 app.get('/order', productsRoute);
 app.get('/order/alphabetical', productsRoute);

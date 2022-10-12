@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/cardStyle.css'
 import { useNavigate } from 'react-router-dom';
+import '../styles/cardStyle.css'
+import { addShoppingCart } from '../api/localStorage';
 
 
 function Cards({ item }) {
 const navigate = useNavigate();
+const [cart, setToCart] = useState([]);
+const [isDisabled, setDisabled] = useState(false);
 
-const handleMoreInfo = ({ target }, id) => {
+const handleAddToCart = async (id, name, price) => {
+  setDisabled(true);
+  setToCart([...cart, { id, name, price }]);
+};
+
+const handleMoreInfo = (id) => {
   navigate(`/info/${id}`);
-}
- 
+};
+
+useEffect(() => {
+  addShoppingCart(cart);
+}, [cart]);
+
   return (
     <div key={ item.id } className="cards">
       <img
@@ -32,22 +44,26 @@ const handleMoreInfo = ({ target }, id) => {
           className="add-btn"
           type="button"
           name="add"
-        //   onClick={ (e) => handleAddToCart(e, item.id, item.name, item.price) }
+          onClick={ () => handleAddToCart(item.id, item.name, item.price) }
         >
           colocar no carrinho
         </button>
+        { isDisabled &&  
+        <span className="cart-count">
+          { `produto adicionado ao carrinho`}
+        </span> }
         <button
           className="more-info-btn"
           type="button"
           name="moreInfo"
-          onClick={ (e) => handleMoreInfo(e, item.id) }
+          onClick={ () => handleMoreInfo(item.id) }
         >
           mais informações
         </button>
       </div>
     </div>
   );
-}
+};
 
 Cards.propTypes = {
   productsList: PropTypes.node,

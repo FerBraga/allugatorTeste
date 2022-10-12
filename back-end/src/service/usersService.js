@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const md5 = require('md5');
-const { findUser } = require('../model/usersModel');
+const { findUser, createUser } = require('../model/usersModel');
 const { throwNotFoundError } = require('../middleware/errosTypes');
 const { generateToken } = require('../middleware/jwtToken');
 
@@ -22,7 +22,6 @@ const validateUser = async ({ email, password }) => {
   if (!user) throwNotFoundError('User not found');
 
   const userInfo = { name: user.name, email: user.email, role: user.role };
-  console.log(userInfo);
   const token = generateToken(userInfo);
   return {
     ...userInfo,
@@ -30,7 +29,26 @@ const validateUser = async ({ email, password }) => {
   };
 };
 
-  module.exports = {
-    validateLogin,
-    validateUser
-  };
+const validateRegister = async (user) => {
+  const schema = Joi.object({
+    name: Joi.string().min(12).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+    role: Joi.string().min(6).required(),
+  });
+  const result = await schema.validateAsync(user);
+  return result;
+};
+
+const createNewUserService = async ({ name, email, password, role }) => {
+  const crypto = md5(password);
+  const created = await createUser(name, email, crypto, role);
+  if (created.affectedRows === 1) return created;
+};
+
+module.exports = {
+  validateLogin,
+  validateUser,
+  createNewUserService,
+  validateRegister,
+};

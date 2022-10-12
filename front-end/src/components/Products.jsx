@@ -15,7 +15,7 @@ function Products({ list }) {
       </div>
     </div>
   );
-}
+};
 
 Products.propTypes = {
   list: PropTypes.node,

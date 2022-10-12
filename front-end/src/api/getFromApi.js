@@ -40,3 +40,8 @@ export const loginUser = async ({ email, password }) => {
     console.log(data);
   return data;
 };
+
+export const createNewUser = async ({ name, email, password, role }) => {
+  return app.post('/register', { name, email, password, role })
+    .catch((error) => error);
+};
