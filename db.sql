@@ -32,6 +32,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `users` VALUES
-  (1,'Carlos Silva','carlos@email.com', 'fubebn14', 'admin'),
-  (2,'Joana Teixeira','joana@email.com', 'tuhein15', 'client');
+  (1,'Carlos Silva','carlos@email.com', '78f1520584e98b01dd924fc8e99970be', 'admin'),
+  (2,'Joana Teixeira','joana@email.com', 'a771604bee69896975073c0821ef40f0', 'client');
 

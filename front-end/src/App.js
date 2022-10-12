@@ -1,12 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import HomeProducts from './pages/HomeProducts';
 import InfoProducts from './pages/InfoProducts';
+import LoginPage from './pages/LoginPage';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
     <Routes>
+      <Route exact path="/" element={ <LoginPage /> } />
       <Route exact path="/products" element={ <HomeProducts /> } />
       <Route exact path="/info/:id" element={ <InfoProducts /> } />
     </Routes>

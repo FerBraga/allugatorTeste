@@ -33,3 +33,10 @@ export const getByAlphabeticalOrder = async () => {
     .catch((error) => error)
   return data;
 };
+
+export const loginUser = async ({ email, password }) => {
+  const { data } = await app.post('/login', { email, password })
+    .catch((error) => error);
+    console.log(data);
+  return data;
+};
