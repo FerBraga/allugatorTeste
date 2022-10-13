@@ -5,6 +5,7 @@ const path = require('path');
 const  productsRoute  = require('./routes/productsRoute');
 const errorHandler = require('./middleware/errorHandler');
 const usersRoute = require('./routes/usersRoutes');
+const salesRoute = require('./routes/salesRoute');
 
 
 
@@ -17,6 +18,9 @@ app.use('/images', express.static(path.join(__dirname, '..', 'images')));
 
 app.post('/login', usersRoute);
 app.post('/register', usersRoute);
+app.post('/sales', salesRoute);
+app.get('/sales/:id', salesRoute);
+app.get('/users', usersRoute);
 app.get('/products', productsRoute);
 app.get('/products/search', productsRoute);
 app.get('/info/:id', productsRoute);

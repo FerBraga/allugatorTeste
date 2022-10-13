@@ -1,7 +1,8 @@
 const { validateLogin,
   validateUser,
   createNewUserService,
-  validateRegister
+  validateRegister,
+  getUserByEmailService
 } = require('../service/usersService');
 
 const getUserController = async (req, res) => {
@@ -22,10 +23,17 @@ const createNewUserController = async (req, res) => {
   res.status(201).json(user);
 };
 
+const getUserByEmailController = async (req, res) => {
+  const { email } = req.query;
+  const user = await getUserByEmailService(email);
+  res.status(200).json(user);
+};
+
 
 
 module.exports = {
   getUserController,
-  createNewUserController
+  createNewUserController,
+  getUserByEmailController,
 };
 

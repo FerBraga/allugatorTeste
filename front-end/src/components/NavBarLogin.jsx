@@ -4,7 +4,7 @@ import '../styles/navbar.css';
 function NavBarLogin() {
   return (
     <nav>
-      <span className="orders-btn-text">Renter</span>
+      <span className="logo">Renter</span>
     </nav>
   );
 };

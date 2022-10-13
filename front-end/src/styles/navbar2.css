@@ -1,0 +1,11 @@
+.k,
+.exit-btn,
+.orders-btn {
+    width: 100px;
+    height: 30px;
+    color: #264aad;
+    background-color: white;
+    border-style: none;
+    border-radius: 100px;
+    font-weight: 900;
+}

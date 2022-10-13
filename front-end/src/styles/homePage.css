@@ -1,0 +1,41 @@
+.info-product {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-inputs {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  padding: 25px;
+  height: 27px;
+}
+
+button {
+  border-radius: 10px;
+  border-style: none;
+  color: white;
+  background-color: blue;
+  font-weight: 800;
+  font-family: sans-serif;
+}
+
+input {
+border-radius: 10px;
+border-color: blue;
+border-width: 2px;
+}
+
+select {
+border-radius: 10px;
+border-color: blue;
+border-width: 2px;
+}
+
+option {
+border-radius: 10px;
+border-color: blue;
+border-width: 2px;
+}

@@ -11,9 +11,17 @@ const createUser = async (name, email, password, role) => {
   const [ ResulSetHeader ] = await connection.execute(query, [name, email, password, role]);
   console.log(ResulSetHeader)  
   return ResulSetHeader;
-}
+};
+
+const getByEmail = async (email) => {
+  const query = 'SELECT * FROM meuDB.users WHERE email=?'
+  const [ data ] = await connection.execute(query, [email]);
+  console.log('data no model', data);
+  return data;
+};
 
 module.exports = {
 findUser,
 createUser,
+getByEmail,
 };

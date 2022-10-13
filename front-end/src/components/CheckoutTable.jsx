@@ -40,7 +40,7 @@ function CheckoutTable({ productsData: { productsList, setProductsList } }) {
       </tbody>
     </table>
   );
-}
+};
 
 export default CheckoutTable;
 

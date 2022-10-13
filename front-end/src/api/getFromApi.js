@@ -45,3 +45,19 @@ export const createNewUser = async ({ name, email, password, role }) => {
   return app.post('/register', { name, email, password, role })
     .catch((error) => error);
 };
+
+export const getUserByEmail = async (email) => {
+  return app.get(`/users?email=${email}`)
+    .catch((error) => error);
+};
+
+export const addSales = async (user, product) => {
+  return app.post('/sales', { user, product })
+    .catch((error) => error);
+};
+
+export const getSalesById = async (saleId) => {
+  const data =  await app.get(`/sales/${saleId}`)
+    .catch((error) => error);
+ return data;
+};

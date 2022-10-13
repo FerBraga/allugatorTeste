@@ -35,3 +35,14 @@ INSERT INTO `users` VALUES
   (1,'Carlos Silva','carlos@email.com', '78f1520584e98b01dd924fc8e99970be', 'admin'),
   (2,'Joana Teixeira','joana@email.com', 'a771604bee69896975073c0821ef40f0', 'client');
 
+CREATE TABLE `sales` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`),
+
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `sales` VALUES (1, 1, 1);

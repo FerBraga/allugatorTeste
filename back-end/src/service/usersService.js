@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const md5 = require('md5');
-const { findUser, createUser } = require('../model/usersModel');
+const { findUser, createUser, getByEmail } = require('../model/usersModel');
 const { throwNotFoundError } = require('../middleware/errosTypes');
 const { generateToken } = require('../middleware/jwtToken');
 
@@ -46,9 +46,18 @@ const createNewUserService = async ({ name, email, password, role }) => {
   if (created.affectedRows === 1) return created;
 };
 
+const getUserByEmailService = async ( email ) => {
+  const user = await getByEmail(email);
+  
+  if (user) return user;
+
+  return throwNotFoundError('User Not Found');;
+};
+
 module.exports = {
   validateLogin,
   validateUser,
   createNewUserService,
   validateRegister,
+  getUserByEmailService,
 };

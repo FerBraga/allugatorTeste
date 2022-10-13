@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { getShoppingCart } from '../api/localStorage';
+import { getUserByEmail, addSales } from '../api/getFromApi';
+import { getShoppingCart, getUser } from '../api/localStorage';
 import CheckoutTable from '../components/CheckoutTable';
 import Navbar from '../components/NavBar';
-// import '../style/checkout.css';
+import { useNavigate } from 'react-router-dom';
+import '../styles/checkout.css';
 
 function Checkout() {
   const [productsList, setProductsList] = useState([]);
   const [identification, setIdentification] = useState("");
   const [isDidabled, setDisabled] = useState(true);
   const [finished, setFinished] = useState(false);
+  const navigate = useNavigate();
 
   const getFromStorage = () => {
     const cartItemsList = getShoppingCart();
@@ -23,7 +26,7 @@ function Checkout() {
     };
   };
   const validateId = (cpf) => {
-    const regex = /^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$/;
+    const regex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
     return regex.test(cpf);
   };
 
@@ -32,10 +35,21 @@ function Checkout() {
     validateId(value) && setDisabled(false);
   };
 
-  const submitSale = () => {
+  const submitSale = async () => {
     const product = getShoppingCart();
-    console.log(product);
+    console.log(product[0].id);
+
+    const localStorageUser = getUser();
+    console.log(localStorageUser.email);
+
+    const { data }= await getUserByEmail(localStorageUser.email)
+    console.log(data[0].id);
+
+    await addSales(data[0].id, product[0].id);
+
     setFinished(true);
+
+    navigate('/current');
   };
 
   useEffect(() => {
@@ -44,7 +58,7 @@ function Checkout() {
   }, []);
 
   return (
-      <main>
+      <main className="checkout-main">
         <Navbar />
         <section className="table-section">
           <h3 className="table-tittle">Finalizar assinatura:</h3>
@@ -72,6 +86,6 @@ function Checkout() {
         </span> }
       </main>
   );
-}
+};
 
 export default Checkout;

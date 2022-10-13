@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import '../styles/cardStyle.css'
+import '../styles/cardStyle.css';
 import { addShoppingCart } from '../api/localStorage';
 
 
@@ -38,7 +38,6 @@ useEffect(() => {
           {item.name}
         </p>
       </div>
-
       <div className="add-btn">
         <button
           className="add-btn"
@@ -48,10 +47,7 @@ useEffect(() => {
         >
           colocar no carrinho
         </button>
-        { isDisabled &&  
-        <span className="cart-count">
-          { `produto adicionado ao carrinho`}
-        </span> }
+       
         <button
           className="more-info-btn"
           type="button"
@@ -60,6 +56,10 @@ useEffect(() => {
         >
           mais informações
         </button>
+        { isDisabled &&  
+        <span className="cart-count">
+          { `produto adicionado ao carrinho`}
+        </span> }
       </div>
     </div>
   );

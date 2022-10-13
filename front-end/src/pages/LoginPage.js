@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import NavBarLogin from '../components/NavBarLogin';
+import NavBarLogin from '../components/NavBarLogin';
 import { loginUser } from '../api/getFromApi';
 import { addUser } from '../api/localStorage';
 
@@ -48,7 +48,7 @@ function LoginPage() {
 
   return (
     <main>
-      {/* <NavBarLogin /> */}
+      <NavBarLogin />
         <div className="login-box">
           {validationMessage && (
             <span

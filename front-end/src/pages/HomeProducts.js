@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from '../components/NavBar';
+import Navbar from '../components/NavBar';
 import Products from '../components/Products';
+import '../styles/homePage.css';
 import { 
   getProducts,
   getProductByName,
@@ -12,26 +13,30 @@ function HomeProducts() {
   const [productsList, setProductsList] = useState([]);
   const [inputSearch, setInputSearch] = useState('');
 
-
   useEffect(() => {
-    getProducts().then((data) => setProductsList(data));
+    getProducts()
+    .then((data) => setProductsList(data));
   }, []);
 
   const handleSearch = () => {
-    getProductByName(inputSearch).then((data) => setProductsList(data));
+    getProductByName(inputSearch)
+    .then((data) => setProductsList(data));
   };
 
   const handleOptions = (value) => {
-    getByOrderValue(value).then(({ data }) => setProductsList(data))
+    getByOrderValue(value)
+    .then(({ data }) => setProductsList(data))
   };
 
   const handleAlphabeticalFilter = () => {
-    getByAlphabeticalOrder().then((data) => setProductsList(data))
-  }
+    getByAlphabeticalOrder()
+    .then((data) => setProductsList(data))
+  };
 
   return (
-    <>
-      <NavBar />
+    <div className="div-main">
+      <Navbar />
+      <div className="btns-inputs">
       <input
         className="input-bar" 
         placeholder="produto"
@@ -68,9 +73,10 @@ function HomeProducts() {
       >
       ordem alfabética
       </button>
+      </div>
       <Products list={ productsList } />
-   </>
+   </div>
   );
-}
+};
 
 export default HomeProducts;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState,useEffect } from 'react';
+import { addShoppingCart } from '../api/localStorage';
 import PropTypes from 'prop-types';
 import '../styles/cardStyle.css'
 import { useNavigate } from 'react-router-dom';
@@ -6,10 +8,19 @@ import { useNavigate } from 'react-router-dom';
 
 function CardInfo({ product }) {
 const navigate = useNavigate();
+const [cart, setToCart] = useState([]);
+
+const handleAddToCart = async (id, name, price) => {
+  setToCart([...cart, { id, name, price }]);
+};
+
+useEffect(() => {
+  addShoppingCart(cart);
+}, [cart]);
 
 const handleReturn = () => {
   navigate(`/products`);
-}
+};
  
   return (
     <div key={ product.id } className="cards">
@@ -36,7 +47,7 @@ const handleReturn = () => {
           className="add-btn"
           type="button"
           name="add"
-        //   onClick={ (e) => handleAddToCart(e, item.id, item.name, item.price) }
+          onClick={ () => handleAddToCart() }
         >
           colocar no carrinho
         </button>
@@ -44,7 +55,7 @@ const handleReturn = () => {
           className="more-info-btn"
           type="button"
           name="moreInfo"
-          onClick={ () => handleReturn() }
+          onClick={ () => handleReturn(product.id, product.name, product.price) }
         >
           voltar para produtos
         </button>
