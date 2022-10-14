@@ -3,6 +3,12 @@
 # Contexto
 Este projeto trata-se de uma ferramenta de busca, filtragem de produtos eletrônicos para assinatura.
 
+
+## rodando
+
+<img src="/allugatorTeste/Gravação de tela de 14-10-2022 07_39_26.gif"/>
+<img src="/allugatorTeste/Gravação de tela de 14-10-2022 07_44_52.gif"/>
+
 ## Desenvolvimento 
 
 > Backend
