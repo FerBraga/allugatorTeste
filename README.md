@@ -21,8 +21,8 @@ então rode o comando npm install para instalar todos os pacotes. de back-end.
 ``` 
 > Frontend
 ```bash
-Logo após a instalação do back-end acesse a pasta `/front-end` e rode o comando
-npm install/
+Logo após a instalação de back-end acesse a pasta `/front-end` e rode o comando
+npm install
 ```
 > Banco de dados
 ```bash
