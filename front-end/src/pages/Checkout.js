@@ -11,6 +11,7 @@ function Checkout() {
   const [identification, setIdentification] = useState("");
   const [isDidabled, setDisabled] = useState(true);
   const [finished, setFinished] = useState(false);
+  const [credCard, setCredCard] = useState('');
   const navigate = useNavigate();
 
   const getFromStorage = () => {
@@ -37,13 +38,10 @@ function Checkout() {
 
   const submitSale = async () => {
     const product = getShoppingCart();
-    console.log(product[0].id);
 
     const localStorageUser = getUser();
-    console.log(localStorageUser.email);
 
     const { data }= await getUserByEmail(localStorageUser.email)
-    console.log(data[0].id);
 
     await addSales(data[0].id, product[0].id);
 
@@ -71,6 +69,14 @@ function Checkout() {
             placeholder="insira seu CPF"
             value={ identification }
             onChange={ ({ target }) => handleInputChange(target.value) }
+          />
+           <input
+            className="input-checkout"
+            type="text"
+            name="cred-card"
+            placeholder="insira seu cartão de crédito"
+            value={ credCard }
+            onChange={ ({ target }) => setCredCard(target.value) }
           />
         <button
           className="send-order-btn"

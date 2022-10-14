@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createNewUser } from '../api/getFromApi';
 import { addUser } from '../api/localStorage';
+import NavBarLogin from '../components/NavBarLogin';
 
 function Register() {
   const [inputEmail, setEmail] = useState('');
@@ -46,6 +47,7 @@ function Register() {
 
   return (
     <div>
+      <NavBarLogin />
       <main>
         <div className="register-title-container">
           <h1 className="register-title">Cadastro</h1>
