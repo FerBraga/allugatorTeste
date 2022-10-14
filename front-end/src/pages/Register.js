@@ -22,7 +22,7 @@ function Register() {
       && inputPassword.length >= PASSWORD_LIMIT
       && inputName.length >= NAME_MIN) {
         setIsDisabled(false);
-      }
+      };
     };
     registerValidate();
   }, [inputEmail, inputName, inputPassword]);
@@ -91,7 +91,6 @@ function Register() {
                 />
               </label>
             </div>
-
             <div className="register-btn-page-container">
               <button
                 className="login-btn"
@@ -102,7 +101,6 @@ function Register() {
                 CADASTRAR
               </button>
             </div>
-
             {validationMessage && (
               <span
                 className="invalid-data-message"

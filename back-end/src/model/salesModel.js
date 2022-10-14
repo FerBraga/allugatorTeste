@@ -11,7 +11,6 @@ const getSale = async (id) => {
   const query = 'SELECT * FROM meuDB.sales WHERE user_id=?';
 
   const [data] = await connection.execute(query, [id]);
-  console.log(data);
   return data ;
 };
 
