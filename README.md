@@ -23,6 +23,14 @@ então rode o comando npm install para instalar todos os pacotes. de back-end.
 ```bash
 cd src/
 npm install
+```
+> Banco de dados
+```bash
+Após instalar back-end e front-end você deverá rodar o comando `docker-compose up` na pasta raíz allugatorFS/
+para subir o contâiner docker que roda o banco MySql. Nâo precisa instalar o MySql em sua máquina. Após isso você
+já poderá ter acesso ao servidor na `na porta 3306`. Na pasta `/database` dentro de `/back-end` tem o arquivo `db.sql`
+com o script necessário para criar o banco de dados com as tabelas necessárias. Você pode utiliar o Workbench, por exemplo,
+para acessar o servidor MySql e rodar a query para popular o banco.
 ``` 
 ## Executando aplicação
 
