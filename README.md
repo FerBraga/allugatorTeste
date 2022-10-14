@@ -16,12 +16,14 @@ Na camada de controller, recebemos os dados do front-end via body, params ou que
 camada service. 
 
 Já a camada service faz verificações básicas dos dados recebidos pelo controller. Após o retorno da camada seguinte, a model, 
-faz também uma verificação para retornar os dados em caso de sucesso, ou lançar um erro atravies de um middleware de erro criado para capturar cada um deles, em casos de fracasso na requisição para o banco de dados. 
+faz também uma verificação para retornar os dados em caso de sucesso, ou lançar um erro atravies de um middleware de
+erro criado para capturar cada um deles, em casos de fracasso na requisição para o banco de dados. 
 
 Exemplos de verificações são de comparação de senhas com criptografia (md5), criação de validação de token individual para usuário(jwt), 
 e também validação de dados e campos pelo JOI. 
 
-A última camada, model, faz a requisição/query com os dados vindo de service, caso tenham, para o banco de dados relacional MySql utilizando a lib mysql2/promise, e retorna para as camadas anteriores usa resposta.
+A última camada, model, faz a requisição/query com os dados vindo de service, caso tenham, para o banco de dados relacional 
+MySql utilizando a lib mysql2/promise, e retorna para as camadas anteriores usa resposta.
 ``` 
 > Frontend
 ```bash
