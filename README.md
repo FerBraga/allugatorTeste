@@ -1,7 +1,41 @@
-# Renter - App de aluguel de eletrônicos
+# Renter - App de aluguel de eletrônicos. 
 
 # Contexto
-Este projeto trata-se de uma ferramenta de back-office para armaze.
+Este projeto trata-se de uma ferramenta de busca, filtragem de produtos eletrônicos para assinatura.
+
+## Desenvolvimento 
+
+> Backend
+```bash
+API no padrão REST, que recebe requisições via HTTP. 
+
+As requisições são recebidas pelo servidor, através dos endpoints criados para acesso no front, 
+então o servidor faz um redirecionamento para um router que passa para a camada de controller da aplicação 
+
+Na camada de controller, recebemos os dados do front-end via body, params ou query, então passamos para a 
+camada service. 
+
+Já a camada service faz verificações básicas dos dados recebidos pelo controller. Após o retorno da camada seguinte, a model, 
+faz também uma verificação para retornar os dados em caso de sucesso, ou lançar um erro atravies de um middleware de erro criado para capturar cada um deles, em casos de fracasso na requisição para o banco de dados. 
+
+Exemplos de verificações são de comparação de senhas com criptografia (md5), criação de validação de token individual para usuário(jwt), 
+e também validação de dados e campos pelo JOI. 
+
+A última camada, model, faz a requisição/query com os dados vindo de service, caso tenham, para o banco de dados relacional MySql utilizando a lib mysql2/promise, e retorna para as camadas anteriores usa resposta.
+``` 
+> Frontend
+```bash
+Aplicação utilizando SPA em React. Componentes separados para facilitar a reutilização para diversas páginas. 
+
+Requisições feitas via axios para o back-end.
+
+Gestão de estado com as informações vinda das apis, ou campos das páginas dos componentes com ContextAPI. 
+```
+> Banco de dados
+```bash
+O servidor mysql está em um contâiner docker e dentro dele temos o banco que conterá as tabelas de produtos disponíveis,
+dos usuários cadastrados e também uma tabela de vendas, que serve como ligação entre produto e usuário. 
+``` 
 
 ## Técnologias usadas
 
