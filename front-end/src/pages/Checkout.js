@@ -56,8 +56,9 @@ function Checkout() {
   }, []);
 
   return (
+  <>
+    <Navbar />
       <main className="checkout-main">
-        <Navbar />
         <section className="table-section">
           <h3 className="table-tittle">Finalizar assinatura:</h3>
           <CheckoutTable productsData={ { productsList, setProductsList } } />
@@ -91,6 +92,7 @@ function Checkout() {
           ASSINATURA FINALIZADA
         </span> }
       </main>
+      </>    
   );
 };
 

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBarLogin from '../components/NavBarLogin';
 import { loginUser } from '../api/getFromApi';
 import { addUser } from '../api/localStorage';
+import '../styles/login.css';
 
 function LoginPage() {
   const [inputLogin, setLogin] = useState('');
@@ -47,68 +48,67 @@ function LoginPage() {
   }, [inputLogin, inputPassword, loginBtnDisabled]);
 
   return (
-    <main>
-      <NavBarLogin />
-        <div className="login-box">
-          {validationMessage && (
-            <span
-              className="invalid-email-message"
-              data-testid="common_login__element-invalid-email"
-            >
-             E-mail inválido!
-            </span>
-          )}
+  <>
+    <NavBarLogin />
+      <main>
+        <div className="global-div">
+          <div className="login-box">
+            {validationMessage && (
+              <span
+                className="invalid-email-message"
+              >
+              E-mail inválido!
+              </span>
+            )}
+          </div>
+          <div className="login-input-container">
+              <label htmlFor="email">
+                  Email
+                  <input
+                  className="input-login-register"
+                  type="text"
+                  name="email"
+                  value={ inputLogin }
+                  placeholder="digite seu e-mail"
+                  onChange={ (e) => setLogin(e.target.value) }
+                  />
+              </label>
+          </div>
+          <div className="password-input-container">
+              <label htmlFor="password">
+                  Senha
+                  <input
+                  className="input-login-register"
+                  type="password"
+                  name="password"
+                  value={ inputPassword }
+                  placeholder="digite sua senha"
+                  onChange={ (e) => setPassword(e.target.value) }
+                  />
+              </label>
+          </div>
+          <div className="login-btn-container">
+              <button
+                  className="login-btn"
+                  type="button"
+                onClick={ handleSubmit }
+                  disabled={ loginBtnDisabled }
+              >
+                  LOGIN
+              </button>
+          </div>
+          <div className="register-btn-container">
+              <button
+                  className="register-btn"
+                  type="button"
+                  onClick={ () => navigate('/register') }
+              >
+                <span className="register-text">Ainda não tenho conta</span>
+              </button>
+          </div>
         </div>
-        <div className="login-input-container">
-            <label htmlFor="email">
-                Login
-                <input
-                className="input-login-register"
-                type="text"
-                data-testid="common_login__input-email"
-                name="email"
-                value={ inputLogin }
-                placeholder="digite seu e-mail"
-                onChange={ (e) => setLogin(e.target.value) }
-                />
-            </label>
-        </div>
-        <div className="password-input-container">
-            <label htmlFor="password">
-                Senha
-                <input
-                className="input-login-register"
-                type="password"
-                data-testid="common_login__input-password"
-                name="password"
-                value={ inputPassword }
-                placeholder="digite sua senha"
-                onChange={ (e) => setPassword(e.target.value) }
-                />
-            </label>
-        </div>
-        <div className="login-btn-container">
-            <button
-                className="login-btn"
-                data-testid="common_login__button-login"
-                type="button"
-              onClick={ handleSubmit }
-                disabled={ loginBtnDisabled }
-            >
-                LOGIN
-            </button>
-        </div>
-        <div className="register-btn-container">
-            <button
-                className="register-btn"
-                data-testid="common_login__button-register"
-                type="button"
-                onClick={ () => navigate('/register') }
-            >
-              <span className="register-text">Ainda não tenho conta</span>
-            </button>
-        </div>
-    </main>
+     </main>
+  </>
   );
 }
 
