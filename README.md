@@ -7,7 +7,7 @@ Este projeto trata-se de uma ferramenta de busca, filtragem de produtos eletrôn
 ## rodando
 
 <img width="900" src="/Gravação de tela de 14-10-2022 07_39_26.gif">
-<img width="900"  src="/allugatorTeste/Gravação de tela de 14-10-2022 07_44_52.gif">
+<img width="900"  src="/Gravação de tela de 14-10-2022 07_44_52.gif">
 
 ## Desenvolvimento 
 
