@@ -1,23 +1,23 @@
-# My Awesome Project
+# Renter - App de aluguel de eletrônicos
 
 # Contexto
-Este projeto trata-se de uma ferramenta de back-office para armazenar e buscar dados de erros que ocorreram com clientes.
+Este projeto trata-se de uma ferramenta de back-office para armaze.
 
 ## Técnologias usadas
 
 Front-end:
-> Desenvolvido usando: React, Redux, CSS3, HTML5, Redis, ES6
+> Desenvolvido usando: React, ContextAPI, CSS3, HTML5, ES6
 
 Back-end:
-> Desenvolvido usando: NodeJS, ExpressJS, MongoDB, MYSQL, ES6
+> Desenvolvido usando: NodeJS, ExpressJS, MYSQL, ES6, JOI, JWT, Md5
 
 
 ## Instalando Dependências
 
 > Backend
 ```bash
-cd api/ 
-npm install
+Após clonar este repositório em seu diretório local, acesse a pasta onde foi clonado, 
+então rode o comando npm install para instalar todos os pacotes. de back-end.
 ``` 
 > Frontend
 ```bash
